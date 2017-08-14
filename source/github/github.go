@@ -11,8 +11,8 @@ import (
 	"path"
 	"strings"
 
+	"github.com/dashroots/migrate/source"
 	"github.com/google/go-github/github"
-	"github.com/mattes/migrate/source"
 )
 
 func init() {
@@ -46,22 +46,8 @@ func (g *Github) Open(url string) (source.Driver, error) {
 		return nil, err
 	}
 
-	if u.User == nil {
-		return nil, ErrNoUserInfo
-	}
-
-	password, ok := u.User.Password()
-	if !ok {
-		return nil, ErrNoUserInfo
-	}
-
-	tr := &github.BasicAuthTransport{
-		Username: u.User.Username(),
-		Password: password,
-	}
-
 	gn := &Github{
-		client:     github.NewClient(tr.Client()),
+		client:     github.NewClient(nil),
 		url:        url,
 		migrations: source.NewMigrations(),
 	}

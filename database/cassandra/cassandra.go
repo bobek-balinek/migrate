@@ -7,7 +7,7 @@ import (
 	nurl "net/url"
 	"github.com/gocql/gocql"
 	"time"
-	"github.com/mattes/migrate/database"
+	"github.com/dashroots/migrate/database"
 	"strconv"
 )
 

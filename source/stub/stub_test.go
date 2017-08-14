@@ -3,8 +3,8 @@ package stub
 import (
 	"testing"
 
-	"github.com/mattes/migrate/source"
-	st "github.com/mattes/migrate/source/testing"
+	"github.com/dashroots/migrate/source"
+	st "github.com/dashroots/migrate/source/testing"
 )
 
 func Test(t *testing.T) {
